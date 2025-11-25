@@ -1,4 +1,4 @@
-# jihoShin.github.io
+# shinjh0849.github.io
 
 Personal site for Jiho Shin powered by [Jekyll](https://jekyllrb.com/) and the [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) theme. The repo already contains a hero-style landing page, About page, and a test page you can use to verify deployments to `jihoShin.github.io`.
 
