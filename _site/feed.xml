@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-24T22:32:36-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jiho Shin</title><subtitle>Personal site and engineering journal.</subtitle><author><name>Jiho Shin</name></author><entry><title type="html">Hello, World</title><link href="http://localhost:4000/journal/hello-world/" rel="alternate" type="text/html" title="Hello, World" /><published>2024-04-25T20:00:00-04:00</published><updated>2024-04-25T20:00:00-04:00</updated><id>http://localhost:4000/journal/hello-world</id><content type="html" xml:base="http://localhost:4000/journal/hello-world/"><![CDATA[<p>Setting up this site with the Minimal Mistakes theme only takes a few steps:</p>
+
+<ol>
+  <li>Update <code class="language-plaintext highlighter-rouge">_config.yml</code> with your own name and links.</li>
+  <li>Drop Markdown files into <code class="language-plaintext highlighter-rouge">_pages/</code> for standalone content.</li>
+  <li>Write blog posts right here in <code class="language-plaintext highlighter-rouge">_posts/</code>.</li>
+</ol>
+
+<p>Expect future posts to cover tiny experiments, notes on tooling, or anything else worth sharing.</p>]]></content><author><name>Jiho Shin</name></author><category term="journal" /><category term="update" /><category term="setup" /><summary type="html"><![CDATA[First post to confirm the site builds correctly.]]></summary></entry></feed>

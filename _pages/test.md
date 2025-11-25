@@ -7,7 +7,7 @@ excerpt: "Use this page to verify that deployments to GitHub Pages work end-to-e
 ---
 
 {: .notice--primary }
-This is a intentionally simple test page. If you can see it at `https://jihoShin.github.io/test/` after pushing new changes, the deployment was successful.
+This is a intentionally simple test page. If you can see it at `https://shinjh0849.github.io/test/` after pushing new changes, the deployment was successful.
 
 ## Checklist
 

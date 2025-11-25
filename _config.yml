@@ -20,9 +20,9 @@ title                    : "Jiho Shin"
 title_separator          : "-"
 name                     : "Jiho Shin"
 description              : "Personal site and engineering journal."
-url                      : "https://jihoShin.github.io"
+url                      : "https://shinjh0849.gigethub.io"
 baseurl                  : ""
-repository               : "jihoShin/jihoShin.github.io"
+repository               : "shinjh0849/shinjh0849.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : "Jiho Shin"
@@ -95,7 +95,7 @@ social:
   type                   : "Person"
   name                   : "Jiho Shin"
   links:
-    - "https://github.com/jihoShin"
+    - "https://github.com/shinjh0849"
 
 # Analytics
 analytics:
@@ -115,17 +115,17 @@ author:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jihoShin"
+      url: "https://github.com/shinjh0849"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://jihoShin.github.io"
+      url: "https://shinjh0849.github.io"
 
 # Site Footer
 footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jihoShin"
+      url: "https://github.com/shinjh0849"
 
 
 # Reading Files

@@ -1,6 +1,6 @@
 # shinjh0849.github.io
 
-Personal site for Jiho Shin powered by [Jekyll](https://jekyllrb.com/) and the [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) theme. The repo already contains a hero-style landing page, About page, and a test page you can use to verify deployments to `jihoShin.github.io`.
+Personal site for Jiho Shin powered by [Jekyll](https://jekyllrb.com/) and the [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) theme. The repo already contains a hero-style landing page, About page, and a test page you can use to verify deployments to `shinjh0849.github.io`.
 
 ## Local development
 
@@ -25,7 +25,7 @@ JEKYLL_ENV=production bundle exec jekyll build
 
 ## Deployment
 
-This repository is a user site (`jihoShin.github.io`), so every push to `main` automatically redeploys via GitHub Pages. After making changes:
+This repository is a user site (`shinjh0849.github.io`), so every push to `main` automatically redeploys via GitHub Pages. After making changes:
 
 ```bash
 git add .
@@ -33,6 +33,6 @@ git commit -m "Update site"
 git push origin main
 ```
 
-Within a couple of minutes you should see the updated site live at <https://jihoShin.github.io>. If you enabled GitHub Actions or custom workflows, monitor their logs for build status.
+Within a couple of minutes you should see the updated site live at <https://shinjh0849.github.io>. If you enabled GitHub Actions or custom workflows, monitor their logs for build status.
 
-After each deploy hit <https://jihoShin.github.io/test/> to confirm the test page reflects the latest changes.
+After each deploy hit <https://shinjh0849.github.io/test/> to confirm the test page reflects the latest changes.
