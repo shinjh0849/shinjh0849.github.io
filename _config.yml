@@ -20,7 +20,7 @@ title                    : "Jiho Shin"
 title_separator          : "-"
 name                     : "Jiho Shin"
 description              : "Personal site and engineering journal."
-url                      : "https://shinjh0849.gigethub.io"
+url                      : "https://shinjh0849.github.io"
 baseurl                  : ""
 repository               : "shinjh0849/shinjh0849.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -109,16 +109,19 @@ analytics:
 author:
   name             : "Jiho Shin"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Full-stack engineer building thoughtful products."
-  location         : ""
-  email            :
+  bio              : ""
+  location         : "Kingston, ON, Canada"
+  email            : "jiho.shin [at] queens.ca"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/shinjh0849"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://shinjh0849.github.io"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/shinjiho"
+    - label: "Google Scholar"
+      icon: "fas fa-fw fa-graduation-cap"
+      url: "https://scholar.google.com/citations?hl=en&user=kowMMYcAAAAJ"
 
 # Site Footer
 footer:
@@ -126,6 +129,12 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/shinjh0849"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/shinjiho"
+    - label: "Google Scholar"
+      icon: "fas fa-fw fa-graduation-cap"
+      url: "https://scholar.google.com/citations?hl=en&user=kowMMYcAAAAJ"
 
 
 # Reading Files
@@ -264,8 +273,14 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
       comments: # true
       share: true
       related: true
+  # pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      author_profile: true
