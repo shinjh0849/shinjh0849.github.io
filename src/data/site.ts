@@ -13,6 +13,7 @@ export const site = {
     github: 'https://github.com/shinjh0849',
     linkedin: 'https://linkedin.com/in/shinjiho',
     scholar: 'https://scholar.google.com/citations?hl=en&user=kowMMYcAAAAJ',
+    orcid: 'https://orcid.org/0000-0001-8829-3773',
     cv: '/CV.pdf',
   },
 };
