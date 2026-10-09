@@ -6,8 +6,8 @@ export const site = {
   role: 'Postdoctoral Research Fellow',
   affiliation: 'York University · Lassonde School of Engineering',
   location: 'Toronto, ON, Canada',
-  // TODO: confirm current email address (old Queen's address is stale)
-  email: '',
+  // Obfuscated on purpose: never render as a mailto: link.
+  email: 'shinjiho [at] yorku [dot] ca',
   portrait: '/images/portrait.jpg',
   links: {
     github: 'https://github.com/shinjh0849',
