@@ -5,8 +5,7 @@ export const site = {
     'Postdoctoral Research Fellow at Queen’s University working on agentic code & test generation, LLM reliability, and software assurance for ML systems.',
   location: 'Kingston, ON, Canada',
   email: 'jiho.shin [at] queensu.ca',
-  // Replace with a real photo (e.g. /images/portrait.jpg) — this is a placeholder.
-  portrait: '/images/portrait-placeholder.svg',
+  portrait: '/images/portrait.jpg',
   links: {
     github: 'https://github.com/shinjh0849',
     linkedin: 'https://linkedin.com/in/shinjiho',

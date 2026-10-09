@@ -30,7 +30,7 @@ There are no tests. Verify visually with `npm run dev`; the Claude-in-Chrome ext
   - `.timeline-track span` is drawn with scroll scrub; `.card` gets a cursor spotlight via `--mx/--my`.
   - Everything honors `prefers-reduced-motion`. CSS sets `opacity: 0` on reveal targets only when `html.js` is present, so the site still reads without JS.
 - **View transitions** are on via `<ClientRouter />`. Because pages swap without a full reload, `motion.ts` re-inits on `astro:page-load` and tears down ScrollTriggers on `astro:before-swap`. Any new page-level script must follow the same pattern: bind listeners once at document level (delegation), never per element on load. See the publications filter and gallery lightbox scripts for the pattern.
-- **Static assets** live in `public/` (`images/gallery_N.jpg`, `CV.pdf`, `favicon.svg`). `site.portrait` currently points to an SVG placeholder; swap in a real photo there.
+- **Static assets** live in `public/` (`images/gallery_N.jpg`, `CV.pdf`, `favicon.svg`). `site.portrait` points to `images/portrait.jpg` (1200px square crop).
 
 ## Reference sources
 
