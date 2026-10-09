@@ -15,7 +15,7 @@ npm run build        # production build into dist/
 npm run preview      # serve dist/ locally
 npm run check        # astro check (TypeScript + template diagnostics)
 npm run sync:pubs:dry  # report what OpenAlex would add/promote in publications.json
-npm run sync:pubs      # apply it (the weekly workflow does this and opens a PR)
+npm run sync:pubs      # apply it locally (or trigger the on-demand workflow for a PR)
 ```
 
 There are no tests. Verify visually with `npm run dev`; the Claude-in-Chrome extension may be unavailable, in which case a Playwright script against a cached Chromium works (headless Chrome `--screenshot` does NOT: GSAP intro animations never tick, so the page captures blank).
@@ -32,7 +32,7 @@ There are no tests. Verify visually with `npm run dev`; the Claude-in-Chrome ext
   - `.timeline-track span` is drawn with scroll scrub; `.card` gets a cursor spotlight via `--mx/--my`.
   - Everything honors `prefers-reduced-motion`. CSS sets `opacity: 0` on reveal targets only when `html.js` is present, so the site still reads without JS.
 - **View transitions** are on via `<ClientRouter />`. Because pages swap without a full reload, `motion.ts` re-inits on `astro:page-load` and tears down ScrollTriggers on `astro:before-swap`. Any new page-level script must follow the same pattern: bind listeners once at document level (delegation), never per element on load. See the publications filter and gallery lightbox scripts for the pattern.
-- **Publication sync.** `scripts/sync-publications.mjs` pulls Jiho's works from OpenAlex (author id in `scripts/sync-config.json`), matches them to `publications.json` by arXiv id / DOI / title, promotes preprints that now have a venue, and appends unseen papers. `.github/workflows/sync-publications.yml` runs it every Monday and opens a PR on branch `sync/publications`; it never deletes entries and never auto-merges. OpenAlex merges other "Jiho Shin"s into the profile, so a work must share a full-name co-author with an existing entry; known noise is listed in `ignoreOpenAlexIds`. Google Scholar has no API and blocks scrapers, which is why OpenAlex is used.
+- **Publication sync.** `scripts/sync-publications.mjs` pulls Jiho's works from OpenAlex (author id in `scripts/sync-config.json`), matches them to `publications.json` by arXiv id / DOI / title, promotes preprints that now have a venue, and appends unseen papers. `.github/workflows/sync-publications.yml` runs it on demand only (`gh workflow run sync-publications.yml`, or the Actions tab) and opens a PR on branch `sync/publications`; it never deletes entries and never auto-merges. Locally, `npm run sync:pubs:dry` previews and `npm run sync:pubs` applies. OpenAlex merges other "Jiho Shin"s into the profile, so a work must share a full-name co-author with an existing entry; known noise is listed in `ignoreOpenAlexIds`. Google Scholar has no API and blocks scrapers, which is why OpenAlex is used.
 - **Static assets** live in `public/` (`images/gallery_N.jpg`, `CV.pdf`, `favicon.svg`). `site.portrait` points to `images/portrait.jpg` (1200px square crop).
 
 ## Reference sources

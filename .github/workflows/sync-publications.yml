@@ -1,9 +1,7 @@
 name: Sync publications from OpenAlex
 
 on:
-  schedule:
-    - cron: '0 9 * * 1' # Mondays 09:00 UTC
-  workflow_dispatch:
+  workflow_dispatch: # run by hand: Actions tab, or `gh workflow run sync-publications.yml`
 
 permissions:
   contents: write
