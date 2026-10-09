@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Timeline from '../components/Timeline.astro';
+import { experience } from '../data/experience';
+---
+<Base title="Experience" description="Research, engineering, and teaching roles.">
+  <PageHead kicker="Experience" title="Research, <em>industry</em>, and teaching." lead="A timeline of research, agentic SE, and applied AI work across academia and industry." />
+  <section class="page-body"><div class="container"><Timeline entries={experience} /></div></section>
+</Base>

@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { awards } from '../data/misc';
+---
+<Base title="Awards" description="Grants, fellowships, and paper recognitions.">
+  <PageHead kicker="Awards" title="Grants, fellowships, and <em>recognition</em>." />
+  <section class="page-body"><div class="container">
+    <div class="rows" data-stagger>
+      {awards.map((a) => (
+        <div class="row">
+          <span class="row-date">{a.date}</span>
+          <div><div class="row-title">{a.title}</div><p class="row-detail">{a.detail}</p></div>
+        </div>
+      ))}
+    </div>
+  </div></section>
+</Base>

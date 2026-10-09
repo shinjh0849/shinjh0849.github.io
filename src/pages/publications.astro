@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import PubItem from '../components/PubItem.astro';
+import { publications } from '../data/publications';
+import { site } from '../data/site';
+
+const sorted = [...publications].sort((a, b) => b.year - a.year);
+const counts = {
+  all: publications.length,
+  conference: publications.filter((p) => p.kind === 'conference').length,
+  journal: publications.filter((p) => p.kind === 'journal').length,
+  preprint: publications.filter((p) => p.kind === 'preprint').length,
+};
+---
+<Base title="Publications" description="Papers across AI for SE, code intelligence, testing, and defect prediction.">
+  <PageHead kicker="Publications" title="Papers on <em>code</em>, tests, and trust." lead="Conference papers, journal articles, and preprints across AI for SE, code intelligence, testing, and defect prediction." />
+  <section class="page-body">
+    <div class="container">
+      <div class="pub-toolbar" data-reveal>
+        <div class="filters" role="tablist" aria-label="Filter publications">
+          <button class="chip active" data-filter="all">All · {counts.all}</button>
+          <button class="chip" data-filter="conference">Conference · {counts.conference}</button>
+          <button class="chip" data-filter="journal">Journal · {counts.journal}</button>
+          <button class="chip" data-filter="preprint">Preprint · {counts.preprint}</button>
+        </div>
+        <a class="link mono" href={site.links.scholar} target="_blank" rel="noreferrer">Google Scholar ↗</a>
+      </div>
+      <ul class="pub-list" id="pubs" data-stagger>
+        {sorted.map((p) => <PubItem pub={p} />)}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pub-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  document.addEventListener('click', (e) => {
+    const chip = (e.target as HTMLElement).closest<HTMLElement>('.chip[data-filter]');
+    if (!chip) return;
+    const kind = chip.dataset.filter!;
+    document.querySelectorAll('.chip[data-filter]').forEach((c) => c.classList.toggle('active', c === chip));
+    const items = Array.from(document.querySelectorAll<HTMLElement>('#pubs .pub'));
+    gsap.to(items, {
+      opacity: 0, y: 10, duration: 0.2, stagger: 0.01, overwrite: true,
+      onComplete: () => {
+        items.forEach((li) => li.classList.toggle('is-hidden', kind !== 'all' && li.dataset.kind !== kind));
+        const visible = items.filter((li) => !li.classList.contains('is-hidden'));
+        gsap.fromTo(visible, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.04, ease: 'power3.out', overwrite: true });
+      },
+    });
+  });
+</script>

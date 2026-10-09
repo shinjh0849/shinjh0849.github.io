@@ -1,0 +1,40 @@
+---
+import type { TimelineEntry } from '../data/experience';
+interface Props { entries: TimelineEntry[]; }
+const { entries } = Astro.props;
+---
+<div class="timeline">
+  <div class="timeline-track"><span></span></div>
+  {entries.map((e) => (
+    <article class="tl-item" data-reveal>
+      <span class="tl-dot"></span>
+      <div class="card tl-card">
+        <div class="tl-meta"><b>{e.period}</b>{e.location}</div>
+        <div>
+          <h3 class="tl-role">{e.role}</h3>
+          <div class="tl-org">
+            {e.org}
+            {e.orgLinks && (
+              <>
+                {' — '}
+                {e.orgLinks.map((l, i) => (
+                  <>
+                    {i > 0 && ' / '}
+                    <a href={l.href} target="_blank" rel="noreferrer">{l.label}</a>
+                  </>
+                ))}
+              </>
+            )}
+          </div>
+          <ul class="tl-list">{e.bullets.map((b) => <li set:html={b} />)}</ul>
+          {e.subrole && (
+            <>
+              <div class="tl-sub">{e.subrole.title}</div>
+              <ul class="tl-list">{e.subrole.bullets.map((b) => <li>{b}</li>)}</ul>
+            </>
+          )}
+        </div>
+      </div>
+    </article>
+  ))}
+</div>

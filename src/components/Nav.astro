@@ -1,0 +1,83 @@
+---
+import { nav, site } from '../data/site';
+const path = Astro.url.pathname;
+---
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="brand display" aria-label="Home">Jiho<em>.</em>Shin</a>
+    <nav class="nav-links" aria-label="Primary">
+      {nav.map((n) => (
+        <a href={n.href} class:list={[{ active: path === n.href }]}>{n.label}</a>
+      ))}
+    </nav>
+    <div class="nav-right">
+      <a class="btn cv" href={site.links.cv} target="_blank" rel="noreferrer" data-magnetic>CV <span class="arrow">↗</span></a>
+      <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    {nav.map((n) => <a href={n.href} class:list={[{ active: path === n.href }]}>{n.label}</a>)}
+    <a href={site.links.cv} target="_blank" rel="noreferrer">CV ↗</a>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: fixed; inset: 0 0 auto; z-index: 100;
+    transition: transform 0.5s var(--ease-out), background 0.4s, border-color 0.4s;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.nav--scrolled { background: rgba(6, 9, 26, 0.7); backdrop-filter: blur(14px); border-color: var(--border); }
+  .nav.nav--hidden { transform: translateY(-100%); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 72px; }
+  .brand { font-size: 1.5rem; letter-spacing: -0.01em; }
+  .brand em { color: var(--accent-3); font-style: normal; }
+  .nav-links { display: flex; gap: 0.2rem; }
+  .nav-links a {
+    position: relative; padding: 0.45rem 0.7rem; font-size: 0.86rem; color: var(--muted);
+    border-radius: 999px; transition: color 0.3s, background 0.3s;
+  }
+  .nav-links a:hover { color: var(--text); background: var(--surface-2); }
+  .nav-links a.active { color: var(--text); }
+  .nav-links a.active::after {
+    content: ''; position: absolute; left: 50%; bottom: 0; width: 4px; height: 4px; border-radius: 50%;
+    background: var(--accent-3); transform: translateX(-50%);
+  }
+  .nav-right { display: flex; align-items: center; gap: 0.6rem; }
+  .cv { padding: 0.55rem 1rem; font-size: 0.85rem; }
+  .burger { display: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border-strong); place-items: center; position: relative; }
+  .burger span { position: absolute; left: 12px; right: 12px; height: 1.5px; background: var(--text); transition: transform 0.35s var(--ease-out), top 0.35s; }
+  .burger span:first-child { top: 16px; }
+  .burger span:last-child { top: 24px; }
+  .nav.open .burger span:first-child { top: 20px; transform: rotate(45deg); }
+  .nav.open .burger span:last-child { top: 20px; transform: rotate(-45deg); }
+  .mobile-menu {
+    display: none; flex-direction: column; padding: 0.5rem var(--gutter) 1.5rem;
+    background: rgba(6, 9, 26, 0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a { padding: 0.8rem 0; font-size: 1.4rem; font-family: var(--font-display); border-bottom: 1px solid var(--border); color: var(--muted); }
+  .mobile-menu a.active, .mobile-menu a:hover { color: var(--text); }
+  @media (max-width: 1000px) {
+    .nav-links { display: none; }
+    .burger { display: grid; }
+    .nav.open .mobile-menu { display: flex; }
+    .nav.open { background: rgba(6, 9, 26, 0.95); }
+  }
+</style>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement;
+    const burger = t.closest('.burger');
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    if (burger) {
+      const open = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+    } else if (t.closest('.mobile-menu a')) {
+      nav.classList.remove('open');
+    }
+  });
+</script>

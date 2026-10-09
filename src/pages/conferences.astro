@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { conferences } from '../data/misc';
+---
+<Base title="Conferences" description="Talks, presentations, and boot camps attended.">
+  <PageHead kicker="Conferences" title="Where I’ve <em>presented</em> and learned." />
+  <section class="page-body"><div class="container">
+    <div class="rows" data-stagger>
+      {conferences.map((c) => (
+        <div class="row">
+          <span class="row-date">{c.date}</span>
+          <div><div class="row-title">{c.name}</div><p class="row-detail">{c.detail}</p></div>
+        </div>
+      ))}
+    </div>
+  </div></section>
+</Base>

@@ -1,0 +1,37 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container">
+    <div class="divider"></div>
+    <div class="footer-top">
+      <div data-reveal>
+        <p class="kicker">Get in touch</p>
+        <h2 class="display footer-title">Let’s talk <em>research</em>, collaborations, or opportunities.</h2>
+        <p class="muted footer-email">{site.email}</p>
+      </div>
+      <ul class="footer-links" data-stagger>
+        <li><a class="btn" href={site.links.github} target="_blank" rel="noreferrer" data-magnetic>GitHub <span class="arrow">↗</span></a></li>
+        <li><a class="btn" href={site.links.linkedin} target="_blank" rel="noreferrer" data-magnetic>LinkedIn <span class="arrow">↗</span></a></li>
+        <li><a class="btn" href={site.links.scholar} target="_blank" rel="noreferrer" data-magnetic>Scholar <span class="arrow">↗</span></a></li>
+        <li><a class="btn primary" href={site.links.cv} target="_blank" rel="noreferrer" data-magnetic>Download CV <span class="arrow">↗</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom mono">
+      <span>© {year} {site.name}</span>
+      <span>{site.location}</span>
+      <span>Built with Astro + GSAP</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer { padding: clamp(3rem, 8vw, 6rem) 0 2rem; }
+  .footer-top { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; padding: clamp(3rem, 7vw, 5rem) 0; align-items: center; }
+  .footer-title { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-top: 1rem; max-width: 16ch; }
+  .footer-email { margin-top: 1.2rem; font-family: var(--font-mono); font-size: 0.85rem; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: flex-end; }
+  .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; color: var(--faint); padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  @media (max-width: 800px) { .footer-top { grid-template-columns: 1fr; } .footer-links { justify-content: flex-start; } }
+</style>

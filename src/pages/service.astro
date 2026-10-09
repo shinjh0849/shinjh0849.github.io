@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { service } from '../data/misc';
+---
+<Base title="Academic Service" description="Organizing roles, volunteer work, and reviewing activities.">
+  <PageHead kicker="Service" title="Giving back to the <em>community</em>." />
+  <section class="page-body"><div class="container service-grid">
+    {service.map((g) => (
+      <div class="service-group">
+        <h2 class="display" data-reveal>{g.group}</h2>
+        <div class="rows" data-stagger>
+          {g.items.map((i) => (
+            <div class="row">
+              <span class="row-date">{i.name}</span>
+              <p class="row-detail">{i.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div></section>
+</Base>
+
+<style>
+  .service-grid { display: grid; gap: 4rem; }
+  .service-group h2 { font-size: 2rem; margin-bottom: 1rem; }
+  .service-group h2::before { content: '— '; color: var(--accent-3); }
+  .service-group .row { padding: 1.1rem 0.5rem; }
+  .service-group .row-detail { margin: 0; color: var(--text); }
+</style>

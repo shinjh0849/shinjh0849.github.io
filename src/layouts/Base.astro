@@ -1,0 +1,49 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+interface Props { title?: string; description?: string; }
+const { title, description = site.description } = Astro.props;
+const fullTitle = title ? `${title} — ${site.name}` : site.title;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(site.portrait, Astro.site)} />
+    <meta name="theme-color" content="#06091a" />
+    <ClientRouter />
+  </head>
+  <body>
+    <div class="bg-aurora" aria-hidden="true">
+      <span class="orb orb-a" data-parallax="0.15"></span>
+      <span class="orb orb-b" data-parallax="-0.1"></span>
+    </div>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script src="../scripts/motion.ts"></script>
+  </body>
+</html>
+
+<style is:global>
+  .bg-aurora { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.55; }
+  .orb-a { width: 60vmax; height: 60vmax; top: -25vmax; right: -20vmax; background: radial-gradient(circle, rgba(79,124,255,0.45), transparent 60%); }
+  .orb-b { width: 50vmax; height: 50vmax; bottom: -25vmax; left: -15vmax; background: radial-gradient(circle, rgba(126,224,195,0.22), transparent 60%); }
+</style>

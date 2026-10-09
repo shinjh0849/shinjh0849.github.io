@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a2550"/><stop offset="1" stop-color="#0b1026"/>
+    </linearGradient>
+    <radialGradient id="r" cx="0.8" cy="0.2" r="0.8">
+      <stop offset="0" stop-color="#4f7cff" stop-opacity="0.55"/><stop offset="1" stop-color="#4f7cff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="520" height="520" fill="url(#g)"/>
+  <rect width="520" height="520" fill="url(#r)"/>
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="Georgia, 'Instrument Serif', serif" font-size="220" fill="#e9ecf6">J<tspan fill="#7ee0c3">S</tspan></text>
+  <text x="50%" y="88%" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="16" letter-spacing="4" fill="#9ba4bf">PORTRAIT COMING SOON</text>
+</svg>

@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { gallery } from '../data/misc';
+---
+<Base title="Gallery" description="Moments from conferences, bootcamps, and award ceremonies.">
+  <PageHead kicker="Gallery" title="Moments from the <em>road</em>." />
+  <section class="page-body"><div class="container">
+    <div class="masonry" id="gallery" data-stagger>
+      {gallery.map((g, i) => (
+        <figure data-idx={i} data-tilt>
+          <img src={g.image} alt={g.title} loading={i < 6 ? 'eager' : 'lazy'} />
+          <figcaption>{g.title}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div></section>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+    <button class="lb-btn lb-close" aria-label="Close">×</button>
+    <button class="lb-btn lb-prev" aria-label="Previous">‹</button>
+    <img id="lb-img" alt="" />
+    <button class="lb-btn lb-next" aria-label="Next">›</button>
+    <div class="lightbox-cap" id="lb-cap"></div>
+  </div>
+</Base>
+
+<script>
+  let idx = 0;
+  const items = () => Array.from(document.querySelectorAll<HTMLElement>('#gallery figure'));
+  const show = (i: number) => {
+    const list = items();
+    if (!list.length) return;
+    idx = (i + list.length) % list.length;
+    const img = list[idx].querySelector('img')!;
+    const lb = document.getElementById('lightbox')!;
+    (document.getElementById('lb-img') as HTMLImageElement).src = img.src;
+    document.getElementById('lb-cap')!.textContent = img.alt;
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+  };
+  const close = () => {
+    const lb = document.getElementById('lightbox');
+    lb?.classList.remove('open');
+    lb?.setAttribute('aria-hidden', 'true');
+  };
+  document.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement;
+    const fig = t.closest<HTMLElement>('#gallery figure');
+    if (fig) return show(Number(fig.dataset.idx));
+    if (t.closest('.lb-prev')) return show(idx - 1);
+    if (t.closest('.lb-next')) return show(idx + 1);
+    if (t.closest('.lb-close') || t.id === 'lightbox') return close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('lightbox')?.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+</script>
