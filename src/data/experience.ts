@@ -5,12 +5,21 @@ export interface TimelineEntry {
   org: string;
   orgLinks?: { label: string; href: string }[];
   bullets: string[];
-  subrole?: { title: string; bullets: string[] };
+  subrole?: { title: string; period?: string; bullets: string[] };
 }
 
 export const experience: TimelineEntry[] = [
   {
-    period: 'Sep 2025 – present',
+    period: 'May 2026 – present',
+    location: 'Toronto, ON',
+    role: 'Postdoctoral Research Fellow',
+    org: 'York University — Lassonde School of Engineering',
+    bullets: [
+      'Researching agentic software engineering: how humans interact with agents, and how agents and tools collaborate on complex SE tasks.',
+    ],
+  },
+  {
+    period: 'Sep 2025 – Apr 2026',
     location: 'Kingston, ON',
     role: 'Postdoctoral Research Fellow',
     org: 'Queen’s University',
@@ -18,15 +27,15 @@ export const experience: TimelineEntry[] = [
       { label: 'SAIL', href: 'https://sail.cs.queensu.ca/' },
       { label: 'MCIS', href: 'https://mcis.cs.queensu.ca/' },
     ],
-    bullets: ['Conducting and advising graduate researchers on Agentic SE studies.'],
+    bullets: ['Conducted and advised graduate researchers on agentic SE studies.'],
   },
   {
-    period: 'Jan 2025 – May 2025',
+    period: 'Jan 2024 – May 2025',
     location: 'Remote · Palo Alto, CA',
     role: 'RLEF / CodeGenAgent Lead',
     org: 'Turing',
     bullets: [
-      'Synthesized Chain-of-Thought code data for reinforcement learning with execution feedback (RLEF).',
+      'Synthesized chain-of-thought code data for reinforcement learning with execution feedback (RLEF).',
       'Improved code generation agents by reinforcing soundness and completeness in test generation.',
     ],
   },
@@ -36,44 +45,44 @@ export const experience: TimelineEntry[] = [
     role: 'Applied AI Engineering Intern',
     org: 'HGS (Hinduja Group Companies)',
     bullets: [
-      'Built a Copilot Studio ChatBot for the job application process.',
-      'Enhanced the homepage ChatBot to guide prospective clients with lead and sales details.',
+      'Built a Copilot Studio chatbot for the job application process.',
+      'Enhanced the homepage chatbot to guide prospective clients with lead and sales details.',
     ],
   },
   {
-    period: 'Sep 2021 – present',
+    period: 'Sep 2021 – Aug 2025',
     location: 'Toronto, ON',
-    role: 'AI4SE & SE4AI Researcher',
+    role: 'Graduate Research Assistant',
     org: 'York University',
     bullets: [
-      'AI for SE: Built agents and LLM frameworks to automate testing, generate code, and repair using mined software data.',
-      'SE for AI: Engineered reliable, secure, interpretable AI systems by testing, validating, and benchmarking LLMs and ML/DL libraries.',
+      'AI for SE: built agents and LLM frameworks to automate testing, generate code, and repair programs using mined software data.',
+      'SE for AI: engineered reliable, secure, interpretable AI systems by testing, validating, and benchmarking LLMs and ML/DL libraries.',
     ],
     subrole: {
       title: 'Teaching Assistant',
-      bullets: [
-        'Coordinated graders, office hours, and lab materials for Software Design, Software Engineering Testing, and Software Tools.',
-      ],
+      period: 'Sep 2021 – Apr 2025',
+      bullets: ['Coordinated graders, office hours, and lab materials for Software Design, Software Engineering Testing, and Software Tools.'],
     },
   },
   {
     period: 'Mar 2019 – Feb 2021',
     location: 'Pohang, South Korea',
-    role: 'Software Engineering Researcher',
+    role: 'Graduate Research Assistant',
     org: 'Handong Global University',
     bullets: [
       'Proposed an actionable defect prediction framework improving F1 by 22% over baseline ML models.',
-      'Conducted a survey on 32 papers generating source code from natural language descriptions.',
+      'Conducted a survey of 32 papers on generating source code from natural language descriptions.',
     ],
     subrole: {
       title: 'Teaching Assistant',
+      period: 'Sep 2018 – Dec 2020',
       bullets: ['Supported courses in Computer Vision, Data Structures, C Programming, and Software Engineering.'],
     },
   },
   {
     period: 'Feb 2014 – Jan 2016',
     location: 'Gyeonggi, South Korea',
-    role: 'Military Interpreter',
+    role: 'Military Interpreter (KOR/ENG)',
     org: 'Republic of Korea Navy',
     bullets: [
       'Provided on-site interpretation for naval operations, training, and joint exercises.',
@@ -90,8 +99,8 @@ export const education: TimelineEntry[] = [
     org: 'York University',
     bullets: [
       'Research: AI/ML for SE, code generation, automated software testing, LLM for SE.',
-      'Supervisors: Dr. Song Wang, Dr. Hadi Hemmati.',
-      'Thesis: Investigating the Effectiveness of Large Language Models in Automated Software Engineering. <a href="https://yorkspace.library.yorku.ca/items/68255a60-14ab-4b02-a50b-74ab7dd3da6b" target="_blank" rel="noreferrer">Draft ↗</a>',
+      'Supervisors: <a href="https://scholar.google.com/citations?hl=en&user=gzyZhcgAAAAJ" target="_blank" rel="noreferrer">Dr. Song Wang</a> and <a href="https://scholar.google.com/citations?user=TznXpSIAAAAJ&hl=en" target="_blank" rel="noreferrer">Dr. Hadi Hemmati</a>.',
+      'Thesis: <a href="https://yorkspace.library.yorku.ca/items/68255a60-14ab-4b02-a50b-74ab7dd3da6b" target="_blank" rel="noreferrer">Investigating the Effectiveness of Large Language Models in Automated Software Engineering ↗</a> — EECS Outstanding Thesis Award (2026).',
     ],
   },
   {
@@ -100,9 +109,9 @@ export const education: TimelineEntry[] = [
     role: 'M.Sc., Computer Science & Electrical Engineering',
     org: 'Handong Global University',
     bullets: [
-      'Research: Code generation; actionable and explainable defect prediction.',
-      'Supervisor: Dr. Jaechang Nam.',
-      'Thesis: Actionable Defect Prediction. <a href="https://handong.dcollection.net/srch/srchDetail/200000379792?localeParam=en" target="_blank" rel="noreferrer">PDF ↗</a>',
+      'Research: code generation; actionable and explainable defect prediction.',
+      'Supervisor: <a href="https://scholar.google.com/citations?user=BYm7qHAAAAAJ" target="_blank" rel="noreferrer">Dr. Jaechang Nam</a>.',
+      'Thesis: <a href="https://handong.dcollection.net/srch/srchDetail/200000379792?localeParam=en" target="_blank" rel="noreferrer">Actionable Defect Prediction ↗</a>',
     ],
   },
   {
@@ -110,6 +119,6 @@ export const education: TimelineEntry[] = [
     location: 'Pohang, South Korea',
     role: 'B.Sc., Computer Science & Electrical Engineering',
     org: 'Handong Global University',
-    bullets: ['Specializations: Web applications, human-computer interaction, computer vision.'],
+    bullets: ['Specializations: web applications, human-computer interaction, computer vision.'],
   },
 ];

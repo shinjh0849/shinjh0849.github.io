@@ -1,10 +1,13 @@
 export const site = {
   name: 'Jiho Shin',
-  title: 'Jiho Shin — AI/ML for Software Engineering',
+  title: 'Jiho Shin — Agentic Software Engineering',
   description:
-    'Postdoctoral Research Fellow at Queen’s University working on agentic code & test generation, LLM reliability, and software assurance for ML systems.',
-  location: 'Kingston, ON, Canada',
-  email: 'jiho.shin [at] queensu.ca',
+    'Postdoctoral Research Fellow at York University (Lassonde) working on agentic software engineering, human-agent interaction, and the reliability of LLMs for code.',
+  role: 'Postdoctoral Research Fellow',
+  affiliation: 'York University · Lassonde School of Engineering',
+  location: 'Toronto, ON, Canada',
+  // TODO: confirm current email address (old Queen's address is stale)
+  email: '',
   portrait: '/images/portrait.jpg',
   links: {
     github: 'https://github.com/shinjh0849',
@@ -20,7 +23,7 @@ export const nav = [
   { label: 'Education', href: '/education/' },
   { label: 'Publications', href: '/publications/' },
   { label: 'Awards', href: '/awards/' },
-  { label: 'Conferences', href: '/conferences/' },
+  { label: 'Talks', href: '/conferences/' },
   { label: 'Service', href: '/service/' },
   { label: 'Gallery', href: '/gallery/' },
 ];

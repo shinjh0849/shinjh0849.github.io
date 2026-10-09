@@ -29,7 +29,7 @@ const { entries } = Astro.props;
           <ul class="tl-list">{e.bullets.map((b) => <li set:html={b} />)}</ul>
           {e.subrole && (
             <>
-              <div class="tl-sub">{e.subrole.title}</div>
+              <div class="tl-sub">{e.subrole.title}{e.subrole.period && <span class="tl-sub-period"> · {e.subrole.period}</span>}</div>
               <ul class="tl-list">{e.subrole.bullets.map((b) => <li>{b}</li>)}</ul>
             </>
           )}

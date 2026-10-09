@@ -10,37 +10,39 @@ import { site } from '../data/site';
       <div class="about-side" data-reveal>
         <img src={site.portrait} alt="Jiho Shin" class="about-photo" data-tilt />
         <ul class="about-facts mono">
-          <li><span>Role</span>Postdoc · Queen’s University</li>
-          <li><span>Prev</span>Ph.D. · York University</li>
+          <li><span>Role</span>Postdoc · York University (Lassonde)</li>
+          <li><span>Prev</span>Postdoc · Queen’s University</li>
+          <li><span>Ph.D.</span>EECS · York University, 2025</li>
           <li><span>Base</span>{site.location}</li>
-          <li><span>Mail</span>{site.email}</li>
         </ul>
       </div>
       <div class="prose">
         <p class="about-lead display" data-reveal>
-          I’m a postdoctoral research fellow at Queen’s University (from Sep 2025) and completed my Ph.D. at York University (2021–2025),
-          working on AI/ML for Software Engineering: code generation, automated testing, and LLM-powered development workflows.
+          I’m a Postdoctoral Research Fellow at the Lassonde School of Engineering, York University, in Toronto.
+          My research is on agentic software engineering: how humans interact with agents, and how different agents
+          and tools collaborate to carry out complex software engineering tasks.
         </p>
 
         <h2 class="display" data-reveal>Research focus</h2>
         <ul class="about-list" data-stagger>
-          <li><b>AI for SE.</b> Agentic systems that synthesize and validate code, tests, and fixes from mined repository data.</li>
-          <li><b>SE for AI.</b> Reliability, security, and evaluation of LLMs and ML/DL libraries.</li>
-          <li><b>Benchmarks & metrics.</b> For test generation, vulnerability detection, and code intelligence tasks.</li>
+          <li><b>Agentic SE.</b> Human–agent interaction, and multi-agent / multi-tool collaboration on end-to-end engineering tasks.</li>
+          <li><b>Trustworthy LLMs for code.</b> Reliability of foundation models for text-to-code, unit test and test-oracle (assertion) generation, program repair, code summarization, and code translation.</li>
+          <li><b>Explainable defect prediction and SE for AI.</b> Actionable, stable defect predictors; vulnerabilities and checker bugs in ML/DL libraries; benchmarks for vulnerability detection.</li>
         </ul>
 
         <h2 class="display" data-reveal>Experience highlights</h2>
         <ul class="about-list" data-stagger>
-          <li><b>Queen’s University</b> — Postdoctoral Research Fellow; advising agentic SE studies (2025–present).</li>
-          <li><b>Turing</b> — RLEF/CodeGenAgent Lead; synthesized CoT code data and improved test-generation agents (2025).</li>
-          <li><b>HGS</b> — Applied AI Engineering Intern; built Copilot Studio chatbots for hiring and client guidance (2024–2025).</li>
-          <li><b>York University</b> — AI4SE & SE4AI researcher and head TA; automated testing/codegen and reliable AI systems (2021–present).</li>
-          <li><b>Handong Global University</b> — SE researcher and TA; actionable defect prediction and codegen survey work (2019–2021).</li>
+          <li><b>York University</b> — Postdoctoral Research Fellow, Lassonde School of Engineering (May 2026–present).</li>
+          <li><b>Queen’s University</b> — Postdoctoral Research Fellow; agentic SE studies at SAIL / MCIS (Sep 2025–Apr 2026).</li>
+          <li><b>Turing</b> — RLEF/CodeGenAgent Lead; CoT code data for RL with execution feedback, test-generation agents (2024–2025).</li>
+          <li><b>HGS</b> — Applied AI Engineering Intern; Copilot Studio chatbots for hiring and client guidance (2024–2025).</li>
+          <li><b>York University</b> — Graduate Research Assistant and Teaching Assistant; AI4SE and SE4AI (2021–2025).</li>
+          <li><b>Handong Global University</b> — Graduate Research Assistant and TA; actionable defect prediction, code generation survey (2018–2021).</li>
         </ul>
 
         <h2 class="display" data-reveal>Education</h2>
         <ul class="about-list" data-stagger>
-          <li><b>Ph.D.</b>, Electrical Engineering and Computer Science — York University (2021–2025). Thesis: LLM effectiveness in automated SE.</li>
+          <li><b>Ph.D.</b>, Electrical Engineering and Computer Science — York University (2021–2025). Thesis: LLM effectiveness in automated SE. EECS Outstanding Thesis Award, 2026.</li>
           <li><b>M.Sc.</b>, Computer Science and Electrical Engineering — Handong Global University (2019–2021). Thesis: Actionable Defect Prediction.</li>
           <li><b>B.Sc.</b>, Computer Science and Electrical Engineering — Handong Global University (2012–2019); web apps, HCI, computer vision.</li>
         </ul>
@@ -65,7 +67,7 @@ import { site } from '../data/site';
   .about-facts span { color: var(--faint); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; padding-top: 0.15rem; }
   .about-lead { font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.35; color: var(--text); }
   .prose h2 { font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.2rem; }
-  .prose h2::before { content: '— '; color: var(--accent-3); }
+  .prose h2::before { content: '— '; color: var(--accent); }
   .about-list { display: grid; gap: 0.9rem; color: var(--muted); }
   .about-list li { padding-left: 1.4rem; position: relative; }
   .about-list li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }

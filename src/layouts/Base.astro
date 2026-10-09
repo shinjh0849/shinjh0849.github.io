@@ -24,7 +24,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(site.portrait, Astro.site)} />
-    <meta name="theme-color" content="#06091a" />
+    <meta name="theme-color" content="#0f0b08" />
     <ClientRouter />
   </head>
   <body>
@@ -44,6 +44,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 <style is:global>
   .bg-aurora { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
   .orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.55; }
-  .orb-a { width: 60vmax; height: 60vmax; top: -25vmax; right: -20vmax; background: radial-gradient(circle, rgba(79,124,255,0.45), transparent 60%); }
-  .orb-b { width: 50vmax; height: 50vmax; bottom: -25vmax; left: -15vmax; background: radial-gradient(circle, rgba(126,224,195,0.22), transparent 60%); }
+  .orb-a { width: 60vmax; height: 60vmax; top: -25vmax; right: -20vmax; background: radial-gradient(circle, rgba(255,106,26,0.38), transparent 60%); }
+  .orb-b { width: 50vmax; height: 50vmax; bottom: -25vmax; left: -15vmax; background: radial-gradient(circle, rgba(255,179,71,0.18), transparent 60%); }
 </style>

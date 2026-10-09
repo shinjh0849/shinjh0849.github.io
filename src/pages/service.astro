@@ -8,11 +8,11 @@ import { service } from '../data/misc';
   <section class="page-body"><div class="container service-grid">
     {service.map((g) => (
       <div class="service-group">
-        <h2 class="display" data-reveal>{g.group}</h2>
+        <h2 class="display group-title" data-reveal>{g.group}</h2>
         <div class="rows" data-stagger>
           {g.items.map((i) => (
             <div class="row">
-              <span class="row-date">{i.name}</span>
+              <span class="row-date">{i.href ? <a href={i.href} target="_blank" rel="noreferrer" class="row-link">{i.name}</a> : i.name}</span>
               <p class="row-detail">{i.detail}</p>
             </div>
           ))}
@@ -24,8 +24,6 @@ import { service } from '../data/misc';
 
 <style>
   .service-grid { display: grid; gap: 4rem; }
-  .service-group h2 { font-size: 2rem; margin-bottom: 1rem; }
-  .service-group h2::before { content: '— '; color: var(--accent-3); }
   .service-group .row { padding: 1.1rem 0.5rem; }
   .service-group .row-detail { margin: 0; color: var(--text); }
 </style>

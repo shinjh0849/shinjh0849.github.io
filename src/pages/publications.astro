@@ -2,16 +2,10 @@
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import PubItem from '../components/PubItem.astro';
-import { publications } from '../data/publications';
+import { publications, counts } from '../data/publications';
 import { site } from '../data/site';
 
 const sorted = [...publications].sort((a, b) => b.year - a.year);
-const counts = {
-  all: publications.length,
-  conference: publications.filter((p) => p.kind === 'conference').length,
-  journal: publications.filter((p) => p.kind === 'journal').length,
-  preprint: publications.filter((p) => p.kind === 'preprint').length,
-};
 ---
 <Base title="Publications" description="Papers across AI for SE, code intelligence, testing, and defect prediction.">
   <PageHead kicker="Publications" title="Papers on <em>code</em>, tests, and trust." lead="Conference papers, journal articles, and preprints across AI for SE, code intelligence, testing, and defect prediction." />

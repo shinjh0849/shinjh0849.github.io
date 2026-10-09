@@ -3,7 +3,6 @@ import type { Publication } from '../data/publications';
 interface Props { pub: Publication; }
 const { pub } = Astro.props;
 const authors = pub.authors.replace('Jiho Shin', '<b>Jiho Shin</b>');
-const isAward = pub.note?.includes('Distinguished');
 ---
 <li class="pub" data-kind={pub.kind}>
   <span class="pub-year">{pub.year}</span>
@@ -11,8 +10,9 @@ const isAward = pub.note?.includes('Distinguished');
     <div class="pub-title">{pub.title}</div>
     <div class="pub-authors" set:html={authors} />
     <div class="pub-venue">
-      <span class={`tag ${pub.kind}`}>{pub.venue}</span>
-      {pub.note && <span class:list={['tag', { award: isAward }]}>{pub.note}</span>}
+      <span class={`tag ${pub.kind}`} title={pub.venueFull}>{pub.venue}</span>
+      {pub.note && <span class="tag">{pub.note}</span>}
+      {pub.award && <span class="tag award">🏆 {pub.award}</span>}
     </div>
   </div>
   {pub.href

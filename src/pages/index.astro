@@ -2,14 +2,16 @@
 import Base from '../layouts/Base.astro';
 import PubItem from '../components/PubItem.astro';
 import { site } from '../data/site';
-import { selected, publications } from '../data/publications';
+import { selected, counts } from '../data/publications';
+import { service } from '../data/misc';
 
-const venues = ['ICSE', 'ISSTA', 'MSR', 'TSE', 'TOSEM', 'APSEC', 'ISSRE', 'ESEC/FSE', 'ICST', 'KCSE', 'JIPS'];
+const venues = ['ICSE', 'FSE', 'ISSTA', 'MSR', 'ICSME', 'AIware', 'TSE', 'TOSEM', 'APSEC', 'ISSRE', 'ICST', 'KCSE'];
+const pcCount = service.filter((g) => g.group !== 'Student Volunteer').reduce((n, g) => n + g.items.length, 0);
 const stats = [
-  { n: publications.filter((p) => p.kind !== 'preprint').length, label: 'Peer-reviewed papers' },
-  { n: 2, label: 'Distinguished paper awards' },
-  { n: 6, label: 'Preprints under review' },
-  { n: 9, label: 'Venues served as reviewer / PC' },
+  { n: counts.peerReviewed, label: 'Peer-reviewed papers' },
+  { n: counts.awards, label: 'Paper awards' },
+  { n: counts.preprint, label: 'Preprints under review' },
+  { n: pcCount, label: 'Venues served as PC / reviewer' },
 ];
 ---
 <Base>
@@ -17,11 +19,12 @@ const stats = [
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="kicker" data-hero-fade>Postdoctoral Research Fellow · Queen’s University</p>
-        <h1 class="display hero-title" data-split>Teaching machines to <em>write</em>, <em>test</em>, and <em>trust</em> code.</h1>
+        <p class="kicker" data-hero-fade>Postdoctoral Research Fellow · York University</p>
+        <h1 class="display hero-title" data-split>Building <em>agents</em> that engineer software you can <em>trust</em>.</h1>
         <p class="hero-lead" data-hero-fade>
-          I’m Jiho Shin. I build agentic systems for code and test generation, benchmark LLM reliability,
-          and study how to make AI-assisted software engineering actually hold up.
+          I’m Jiho Shin, a postdoc at York University’s Lassonde School of Engineering. I study agentic software
+          engineering: how humans work with agents, how agents and tools collaborate, and how reliable LLMs really
+          are at generating, testing, and repairing code.
         </p>
         <div class="hero-cta" data-hero-fade>
           <a class="btn primary" href="/publications/" data-magnetic>Publications <span class="arrow">↗</span></a>
@@ -33,7 +36,7 @@ const stats = [
         <div class="portrait" data-tilt>
           <img src={site.portrait} alt="Portrait of Jiho Shin" width="520" height="520" />
           <div class="portrait-ring"></div>
-          <div class="portrait-tag mono">Kingston, ON · Canada</div>
+          <div class="portrait-tag mono">Toronto, ON · Canada</div>
         </div>
       </div>
     </div>
@@ -53,25 +56,25 @@ const stats = [
       <div class="section-head" data-reveal>
         <div>
           <p class="kicker">Research focus</p>
-          <h2 class="display section-title">Two directions, <em>one</em> question</h2>
+          <h2 class="display section-title">From AI4SE to <em>agentic</em> SE</h2>
         </div>
-        <p>Can we rely on AI to engineer software, and can we engineer AI we rely on?</p>
+        <p>Can agents do real software engineering, can people work with them well, and can we trust what comes out?</p>
       </div>
       <div class="grid grid-3" data-stagger>
         <article class="card">
           <span class="card-kicker">01 · Agentic SE</span>
-          <h3>Code & test generation</h3>
-          <p>Agents that synthesize code, tests, and repairs from repository signals, closed-loop with execution feedback.</p>
+          <h3>Human–agent collaboration</h3>
+          <p>How developers interact with coding agents, and how multiple agents and tools coordinate to finish complex engineering tasks.</p>
         </article>
         <article class="card">
-          <span class="card-kicker">02 · LLM reliability</span>
-          <h3>Evaluation & benchmarks</h3>
-          <p>Measuring LLMs on code intelligence, vulnerability detection, and neural test-oracle quality. Metrics that mean something.</p>
+          <span class="card-kicker">02 · Trustworthy LLMs for code</span>
+          <h3>Testing & evaluation</h3>
+          <p>Unit test and oracle generation, retrieval-augmented testing, benchmarks for vulnerability detection, and metrics that actually mean something.</p>
         </article>
         <article class="card">
-          <span class="card-kicker">03 · SE for AI</span>
-          <h3>Assurance for ML systems</h3>
-          <p>Testing, validating, and hardening ML/DL libraries and the AI workflows that production software depends on.</p>
+          <span class="card-kicker">03 · AI4SE foundations</span>
+          <h3>Repair, prediction, translation</h3>
+          <p>Program repair, explainable defect prediction, code summarization and translation, and the quality of the ML libraries underneath.</p>
         </article>
       </div>
     </div>
@@ -104,15 +107,15 @@ const stats = [
       </div>
       <div class="grid grid-2" data-stagger>
         <a class="card now-card" href="/experience/">
-          <span class="card-kicker">Research · 2025 –</span>
-          <h3>Queen’s University — Postdoctoral Fellow</h3>
-          <p>Advising graduate researchers and leading agentic SE studies at the SAIL and MCIS labs.</p>
+          <span class="card-kicker">Research · May 2026 –</span>
+          <h3>York University — Postdoctoral Research Fellow</h3>
+          <p>Lassonde School of Engineering. Agentic SE: human–agent interaction and multi-agent, multi-tool collaboration on real engineering work.</p>
           <span class="now-arrow">↗</span>
         </a>
-        <a class="card now-card" href="/experience/">
-          <span class="card-kicker">Industry · 2025</span>
-          <h3>Turing — RLEF / CodeGenAgent Lead</h3>
-          <p>Built chain-of-thought code data for reinforcement learning with execution feedback and strengthened test-generation agents.</p>
+        <a class="card now-card" href="/service/">
+          <span class="card-kicker">Service · 2026 – 27</span>
+          <h3>Web Chair, ICSME’27 · PC at ASE, ICST, MSR, FSE</h3>
+          <p>Organizing and reviewing across the main SE venues, plus journal reviewing for TSE, TOSEM, EMSE, JSS, and others.</p>
           <span class="now-arrow">↗</span>
         </a>
       </div>
@@ -137,7 +140,7 @@ const stats = [
 
   <!-- BIG WORD -->
   <section class="bigword" aria-hidden="true">
-    <div class="bigword-text display" data-hscrub="-15">AI4SE · SE4AI · AI4SE · SE4AI ·</div>
+    <div class="bigword-text display" data-hscrub="-15">AGENTIC SE · AI4SE · AGENTIC SE · AI4SE ·</div>
   </section>
 
   <!-- QUICK LINKS -->
@@ -153,8 +156,8 @@ const stats = [
         {[
           ['Career', 'Experience', 'Research, industry, and teaching roles.', '/experience/'],
           ['Academic', 'Education', 'Ph.D. at York; M.Sc. & B.Sc. at Handong.', '/education/'],
-          ['Recognition', 'Awards', 'Fellowships and distinguished papers.', '/awards/'],
-          ['Talks', 'Conferences', 'Where I’ve presented and attended.', '/conferences/'],
+          ['Recognition', 'Awards', 'Thesis award, paper awards, fellowships.', '/awards/'],
+          ['Talks', 'Talks & Conferences', 'Invited talks and conferences attended.', '/conferences/'],
           ['Community', 'Service', 'Program committees, reviewing, volunteering.', '/service/'],
           ['Photos', 'Gallery', 'Moments from conferences and bootcamps.', '/gallery/'],
         ].map(([k, t, d, href]) => (
@@ -173,14 +176,14 @@ const stats = [
 <style>
   .hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 7rem 0 4rem; position: relative; }
   .hero-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 3rem; align-items: center; }
-  .hero-title { font-size: clamp(3rem, 7.2vw, 6.4rem); margin-top: 1.4rem; max-width: 12ch; }
+  .hero-title { font-size: clamp(2.9rem, 6.6vw, 5.8rem); margin-top: 1.4rem; max-width: 14ch; }
   .hero-lead { margin-top: 1.8rem; max-width: 52ch; color: var(--muted); font-size: 1.15rem; }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2.2rem; }
   .hero-visual { display: flex; justify-content: center; }
   .portrait { position: relative; width: min(100%, 380px); aspect-ratio: 1; border-radius: 28px; transform-style: preserve-3d; }
   .portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: 28px; filter: saturate(0.9) contrast(1.05); }
-  .portrait-ring { position: absolute; inset: -14px; border-radius: 36px; border: 1px solid var(--border-strong); transform: translateZ(-30px); background: linear-gradient(135deg, rgba(79,124,255,0.12), transparent 50%, rgba(126,224,195,0.1)); }
-  .portrait-tag { position: absolute; left: -1rem; top: 1.5rem; padding: 0.55rem 0.9rem; background: rgba(6,9,26,0.85); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--muted); transform: translateZ(40px); backdrop-filter: blur(8px); }
+  .portrait-ring { position: absolute; inset: -14px; border-radius: 36px; border: 1px solid var(--border-strong); transform: translateZ(-30px); background: linear-gradient(135deg, rgba(255,106,26,0.14), transparent 50%, rgba(255,179,71,0.1)); }
+  .portrait-tag { position: absolute; left: -1rem; top: 1.5rem; padding: 0.55rem 0.9rem; background: rgba(15,11,8,0.85); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--muted); transform: translateZ(40px); backdrop-filter: blur(8px); }
   .scroll-hint { position: absolute; bottom: 2rem; left: var(--gutter); color: var(--faint); display: inline-flex; gap: 0.5rem; }
   .scroll-hint span { animation: bob 1.6s ease-in-out infinite; display: inline-block; }
   @keyframes bob { 50% { transform: translateY(4px); } }
@@ -189,11 +192,11 @@ const stats = [
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding: 2.5rem 0; }
   .stats-grid li { display: grid; gap: 0.4rem; }
   .stat-n { font-size: clamp(2.6rem, 5vw, 4rem); line-height: 1; color: var(--text); }
-  .stat-n::after { content: '+'; color: var(--accent-3); font-size: 0.5em; vertical-align: top; }
+  .stat-n::after { content: '+'; color: var(--accent); font-size: 0.5em; vertical-align: top; }
 
   .now-card { display: block; padding-bottom: 3rem; }
   .now-arrow { position: absolute; right: 1.25rem; bottom: 1.1rem; font-size: 1.4rem; color: var(--faint); transition: all 0.35s var(--ease-out); }
-  .now-card:hover .now-arrow { color: var(--accent-3); transform: translate(3px, -3px); }
+  .now-card:hover .now-arrow { color: var(--accent); transform: translate(3px, -3px); }
 
   .bigword { overflow: hidden; padding: 3rem 0; border-block: 1px solid var(--border); }
   .bigword-text { font-size: clamp(5rem, 14vw, 13rem); white-space: nowrap; color: transparent; -webkit-text-stroke: 1px var(--border-strong); line-height: 1; }

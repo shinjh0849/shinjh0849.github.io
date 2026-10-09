@@ -1,18 +1,42 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
-import { conferences } from '../data/misc';
+import { conferences, talks } from '../data/misc';
 ---
-<Base title="Conferences" description="Talks, presentations, and boot camps attended.">
-  <PageHead kicker="Conferences" title="Where I’ve <em>presented</em> and learned." />
-  <section class="page-body"><div class="container">
-    <div class="rows" data-stagger>
-      {conferences.map((c) => (
-        <div class="row">
-          <span class="row-date">{c.date}</span>
-          <div><div class="row-title">{c.name}</div><p class="row-detail">{c.detail}</p></div>
-        </div>
-      ))}
+<Base title="Talks & Conferences" description="Invited talks, presentations, and conferences attended.">
+  <PageHead kicker="Talks & Conferences" title="Where I’ve <em>presented</em> and learned." />
+  <section class="page-body"><div class="container talks-grid">
+    <div>
+      <h2 class="display group-title" data-reveal>Invited talks</h2>
+      <div class="rows" data-stagger>
+        {talks.map((t) => (
+          <div class="row">
+            <span class="row-date">{t.date}</span>
+            <div>
+              <div class="row-title">{t.href ? <a href={t.href} target="_blank" rel="noreferrer" class="row-link">{t.venue} ↗</a> : t.venue}</div>
+              <p class="row-detail">{t.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div>
+      <h2 class="display group-title" data-reveal>Conferences, consortia, boot camps</h2>
+      <div class="rows" data-stagger>
+        {conferences.map((c) => (
+          <div class="row">
+            <span class="row-date">{c.date}</span>
+            <div>
+              <div class="row-title">{c.href ? <a href={c.href} target="_blank" rel="noreferrer" class="row-link">{c.name} ↗</a> : c.name}</div>
+              <p class="row-detail">{c.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div></section>
 </Base>
+
+<style>
+  .talks-grid { display: grid; gap: 4rem; }
+</style>

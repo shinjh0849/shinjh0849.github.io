@@ -4,19 +4,20 @@
 @import '@fontsource-variable/jetbrains-mono';
 
 :root {
-  --bg: #06091a;
-  --bg-2: #0b1026;
-  --surface: rgba(255, 255, 255, 0.035);
-  --surface-2: rgba(255, 255, 255, 0.07);
-  --border: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(255, 255, 255, 0.18);
-  --text: #e9ecf6;
-  --muted: #9ba4bf;
-  --faint: #6b7390;
-  --accent: #4f7cff;
-  --accent-2: #ff7a59;
-  --accent-3: #7ee0c3;
-  --accent-glow: rgba(79, 124, 255, 0.35);
+  --bg: #0f0b08;
+  --bg-2: #171109;
+  --surface: rgba(255, 236, 214, 0.035);
+  --surface-2: rgba(255, 236, 214, 0.07);
+  --border: rgba(255, 236, 214, 0.1);
+  --border-strong: rgba(255, 236, 214, 0.2);
+  --text: #f6efe6;
+  --muted: #b8aa9b;
+  --faint: #7f7368;
+  --accent: #ff6a1a;          /* primary: orange */
+  --accent-2: #ffb347;        /* secondary: amber */
+  --accent-3: #ffb347;        /* alias kept for existing highlight uses */
+  --accent-cool: #45c4b0;     /* cool contrast: teal */
+  --accent-glow: rgba(255, 106, 26, 0.35);
   --font-display: 'Instrument Serif', Georgia, serif;
   --font-body: 'Inter Variable', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, monospace;
@@ -77,7 +78,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .container { width: min(var(--max), 100% - 2 * var(--gutter)); margin-inline: auto; }
 .display { font-family: var(--font-display); }
-.display em { font-style: italic; color: var(--accent-3); }
+.display em { font-style: italic; color: var(--accent); }
 .mono { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
 .muted { color: var(--muted); }
 
@@ -158,7 +159,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .card::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(79, 124, 255, 0.16), transparent 45%);
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255, 106, 26, 0.14), transparent 45%);
   opacity: 0;
   transition: opacity 0.4s;
   pointer-events: none;
@@ -178,14 +179,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* ---------- Timeline ---------- */
 .timeline { position: relative; padding-left: clamp(1.6rem, 5vw, 3.5rem); margin-top: 1rem; }
 .timeline-track { position: absolute; left: 0.45rem; top: 0; bottom: 0; width: 2px; background: var(--border); overflow: hidden; }
-.timeline-track span { display: block; width: 100%; height: 100%; background: linear-gradient(180deg, var(--accent-3), var(--accent)); transform-origin: top; transform: scaleY(0); }
+.timeline-track span { display: block; width: 100%; height: 100%; background: linear-gradient(180deg, var(--accent-2), var(--accent)); transform-origin: top; transform: scaleY(0); }
 .tl-item { position: relative; padding-bottom: clamp(1.6rem, 4vw, 2.6rem); }
 .tl-item:last-child { padding-bottom: 0; }
 .tl-dot {
   position: absolute; left: calc(-1 * clamp(1.6rem, 5vw, 3.5rem) + 0.45rem); top: 1.75rem;
   width: 14px; height: 14px; border-radius: 50%; transform: translateX(-6px);
-  background: var(--bg); border: 2px solid var(--accent-3);
-  box-shadow: 0 0 0 6px rgba(126, 224, 195, 0.08);
+  background: var(--bg); border: 2px solid var(--accent);
+  box-shadow: 0 0 0 6px rgba(255, 106, 26, 0.1);
 }
 .tl-card { display: grid; grid-template-columns: minmax(140px, 0.28fr) 1fr; gap: 1rem 2rem; }
 .tl-meta { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.08em; color: var(--muted); line-height: 1.8; text-transform: uppercase; }
@@ -194,7 +195,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .tl-org { color: var(--muted); margin-top: 0.25rem; }
 .tl-org a { color: var(--text); border-bottom: 1px solid var(--border-strong); }
 .tl-org a:hover { color: var(--accent-3); border-color: var(--accent-3); }
-.tl-sub { margin-top: 1rem; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); }
+.tl-sub { margin-top: 1rem; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-cool); }
 .tl-list { margin-top: 0.75rem; display: grid; gap: 0.45rem; color: var(--muted); font-size: 0.98rem; }
 .tl-list li { position: relative; padding-left: 1.1rem; }
 .tl-list li::before { content: ''; position: absolute; left: 0; top: 0.72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
@@ -225,10 +226,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .pub-authors b { color: var(--text); font-weight: 600; }
 .pub-venue { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
 .tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid var(--border); color: var(--muted); }
-.tag.conference { color: var(--accent-3); border-color: rgba(126, 224, 195, 0.35); }
-.tag.journal { color: #b79cff; border-color: rgba(183, 156, 255, 0.35); }
-.tag.preprint { color: var(--accent-2); border-color: rgba(255, 122, 89, 0.35); }
-.tag.award { color: #ffd166; border-color: rgba(255, 209, 102, 0.4); }
+.tag.conference { color: var(--accent); border-color: rgba(255, 106, 26, 0.4); }
+.tag.journal { color: var(--accent-cool); border-color: rgba(69, 196, 176, 0.4); }
+.tag.preprint { color: var(--accent-2); border-color: rgba(255, 179, 71, 0.4); }
+.tag.award { color: #ffd166; border-color: rgba(255, 209, 102, 0.45); background: rgba(255, 209, 102, 0.06); }
 .pub-link {
   width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 1px solid var(--border-strong);
   display: grid; place-items: center; transition: all 0.3s var(--ease-out); font-size: 1rem;
@@ -259,7 +260,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .masonry figure:hover img { transform: scale(1.06); filter: saturate(1.1); }
 .masonry figcaption {
   position: absolute; inset: auto 0 0; padding: 2.5rem 1rem 1rem;
-  background: linear-gradient(transparent, rgba(6, 9, 26, 0.9));
+  background: linear-gradient(transparent, rgba(15, 11, 8, 0.9));
   font-size: 0.85rem; transform: translateY(30%); opacity: 0; transition: all 0.45s var(--ease-out);
 }
 .masonry figure:hover figcaption { transform: none; opacity: 1; }
@@ -268,13 +269,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .lightbox {
   position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center;
-  background: rgba(3, 5, 15, 0.92); backdrop-filter: blur(12px);
+  background: rgba(8, 6, 4, 0.92); backdrop-filter: blur(12px);
   opacity: 0; pointer-events: none; transition: opacity 0.35s;
 }
 .lightbox.open { opacity: 1; pointer-events: auto; }
 .lightbox img { max-width: min(92vw, 1400px); max-height: 82vh; border-radius: 12px; box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6); object-fit: contain; }
 .lightbox-cap { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; padding: 0 1rem; }
-.lb-btn { position: absolute; width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid var(--border-strong); display: grid; place-items: center; font-size: 1.4rem; transition: all 0.3s; background: rgba(6, 9, 26, 0.5); }
+.lb-btn { position: absolute; width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid var(--border-strong); display: grid; place-items: center; font-size: 1.4rem; transition: all 0.3s; background: rgba(15, 11, 8, 0.5); }
 .lb-btn:hover { background: var(--text); color: var(--bg); }
 .lb-prev { left: 1.2rem; top: 50%; transform: translateY(-50%); }
 .lb-next { right: 1.2rem; top: 50%; transform: translateY(-50%); }
@@ -307,3 +308,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 ::view-transition-new(root) { animation: 0.45s var(--ease-out) both vt-in; }
 @keyframes vt-out { to { opacity: 0; transform: translateY(-10px); } }
 @keyframes vt-in { from { opacity: 0; transform: translateY(14px); } }
+
+/* ---------- Shared group headings / row links ---------- */
+.group-title { font-size: 2rem; margin-bottom: 1rem; }
+.group-title::before { content: '— '; color: var(--accent); }
+.row-link { transition: color 0.25s; }
+.row-link:hover { color: var(--accent); }
+.tl-sub-period { color: var(--faint); letter-spacing: 0.06em; }

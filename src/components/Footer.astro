@@ -9,7 +9,8 @@ const year = new Date().getFullYear();
       <div data-reveal>
         <p class="kicker">Get in touch</p>
         <h2 class="display footer-title">Let’s talk <em>research</em>, collaborations, or opportunities.</h2>
-        <p class="muted footer-email">{site.email}</p>
+        {site.email && <p class="muted footer-email">{site.email}</p>}
+        <p class="muted footer-aff">{site.role} · {site.affiliation}</p>
       </div>
       <ul class="footer-links" data-stagger>
         <li><a class="btn" href={site.links.github} target="_blank" rel="noreferrer" data-magnetic>GitHub <span class="arrow">↗</span></a></li>
@@ -30,7 +31,8 @@ const year = new Date().getFullYear();
   .footer { padding: clamp(3rem, 8vw, 6rem) 0 2rem; }
   .footer-top { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; padding: clamp(3rem, 7vw, 5rem) 0; align-items: center; }
   .footer-title { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-top: 1rem; max-width: 16ch; }
-  .footer-email { margin-top: 1.2rem; font-family: var(--font-mono); font-size: 0.85rem; }
+  .footer-email, .footer-aff { margin-top: 1.2rem; font-family: var(--font-mono); font-size: 0.8rem; }
+  .footer-aff { margin-top: 0.4rem; color: var(--faint); }
   .footer-links { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: flex-end; }
   .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; color: var(--faint); padding-top: 1.5rem; border-top: 1px solid var(--border); }
   @media (max-width: 800px) { .footer-top { grid-template-columns: 1fr; } .footer-links { justify-content: flex-start; } }

@@ -10,7 +10,7 @@ import { awards } from '../data/misc';
       {awards.map((a) => (
         <div class="row">
           <span class="row-date">{a.date}</span>
-          <div><div class="row-title">{a.title}</div><p class="row-detail">{a.detail}</p></div>
+          <div><div class="row-title">{a.href ? <a href={a.href} target="_blank" rel="noreferrer" class="row-link">{a.title} ↗</a> : a.title}</div><p class="row-detail">{a.detail}</p></div>
         </div>
       ))}
     </div>
