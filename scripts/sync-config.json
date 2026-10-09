@@ -1,0 +1,34 @@
+{
+  "openalexAuthorId": "A5102446495",
+  "ignoreOpenAlexIds": [
+    "https://openalex.org/W4309325986",
+    "https://openalex.org/W3205433610",
+    "https://openalex.org/W1991319089",
+    "https://openalex.org/W3216967183",
+    "https://openalex.org/W4383987923"
+  ],
+  "venueAbbreviations": {
+    "International Conference on Software Engineering": "ICSE",
+    "Mining Software Repositories": "MSR",
+    "Symposium on Software Testing and Analysis": "ISSTA",
+    "Foundations of Software Engineering": "FSE",
+    "Automated Software Engineering": "ASE",
+    "Software Maintenance and Evolution": "ICSME",
+    "Software Testing, Verification and Validation": "ICST",
+    "Software Reliability Engineering": "ISSRE",
+    "Asia Pacific Software Engineering Conference": "APSEC",
+    "Asia-Pacific Software Engineering Conference": "APSEC",
+    "AI-powered Software": "AIware",
+    "Software Analysis, Evolution and Reengineering": "SANER",
+    "Program Comprehension": "ICPC",
+    "IEEE Transactions on Software Engineering": "TSE",
+    "Transactions on Software Engineering and Methodology": "TOSEM",
+    "Empirical Software Engineering": "EMSE",
+    "Journal of Systems and Software": "JSS",
+    "Software Testing, Verification and Reliability": "STVR",
+    "IEEE Software": "IEEE Software",
+    "Information and Software Technology": "IST",
+    "Journal of Information Processing Systems": "JIPS"
+  },
+  "_ignoreNotes": "W4309325986/W3205433610/W1991319089: a different Jiho Shin merged into the OpenAlex profile. W3216967183: 2021 arXiv version of the APSEC'23 paper. W4383987923: arXiv version of the ISSRE'23 paper."
+}

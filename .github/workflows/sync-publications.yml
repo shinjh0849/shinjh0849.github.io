@@ -1,0 +1,45 @@
+name: Sync publications from OpenAlex
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Mondays 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run sync
+        run: node scripts/sync-publications.mjs
+      - name: Build check
+        run: |
+          npm ci
+          npm run build
+      - name: Read summary
+        id: summary
+        run: |
+          {
+            echo 'body<<EOF'
+            cat sync-summary.md
+            echo
+            echo 'Review the venue tags, author names, and any "Needs a look" items, then merge. Nothing is deleted by the sync.'
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+          rm sync-summary.md
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: sync/publications
+          title: 'Publications: sync from OpenAlex'
+          commit-message: 'Sync publications from OpenAlex'
+          body: ${{ steps.summary.outputs.body }}
+          add-paths: src/data/publications.json
+          delete-branch: true
