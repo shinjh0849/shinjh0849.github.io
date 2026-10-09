@@ -50,10 +50,7 @@ import SocialRow from '../components/SocialRow.astro';
         </ul>
 
         <p data-reveal>
-          If you’d like to discuss research, collaborations, or opportunities, reach out via
-          <a href={site.links.github} target="_blank" rel="noreferrer">GitHub</a>,
-          <a href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>, or
-          <a href={site.links.scholar} target="_blank" rel="noreferrer">Google Scholar</a>.
+          If you’d like to discuss research, collaborations, or opportunities, reach out via <a href={site.links.github} target="_blank" rel="noreferrer">GitHub</a>, <a href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>, or <a href={site.links.scholar} target="_blank" rel="noreferrer">Google Scholar</a>, or email <span class="email">{site.email}</span>.
         </p>
       </div>
     </div>
@@ -76,5 +73,6 @@ import SocialRow from '../components/SocialRow.astro';
   .about-list li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
   .about-list b { color: var(--text); font-weight: 600; }
   .prose > p:last-child { margin-top: 3rem; color: var(--muted); }
+  .email { font-family: var(--font-mono); font-size: 0.9em; color: var(--text); }
   @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } .about-side { position: static; max-width: 320px; } }
 </style>
