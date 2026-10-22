@@ -48,7 +48,12 @@ const kindLabel = { award: 'Award', paper: 'Paper', role: 'Role', talk: 'Talk' }
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      {[...venues, ...venues].map((v) => <span>{v}</span>)}
+      {/* two identical halves (each wide enough for any viewport) so the -50% loop never shows a seam */}
+      {[0, 1].map(() => (
+        <div class="marquee-half">
+          {Array.from({ length: 4 }, () => venues).flat().map((v) => <span>{v}</span>)}
+        </div>
+      ))}
     </div>
   </div>
 
