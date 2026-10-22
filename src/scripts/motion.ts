@@ -16,10 +16,11 @@ function splitWords(el: HTMLElement) {
   el.innerHTML = '';
   for (const node of nodes) {
     if (node.nodeType === Node.TEXT_NODE) {
-      const words = (node.textContent ?? '').split(/(\s+)/);
+      // Split on ordinary whitespace only, so a non-breaking space keeps a phrase in one word span.
+      const words = (node.textContent ?? '').split(/([ \t\n\r]+)/);
       for (const w of words) {
         if (!w) continue;
-        if (/^\s+$/.test(w)) { el.appendChild(document.createTextNode(' ')); continue; }
+        if (/^[ \t\n\r]+$/.test(w)) { el.appendChild(document.createTextNode(' ')); continue; }
         const outer = document.createElement('span');
         outer.className = 'word';
         const inner = document.createElement('span');
