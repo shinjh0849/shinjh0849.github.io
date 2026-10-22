@@ -75,6 +75,7 @@ export const service = [
 ];
 
 export const gallery = [
+  { title: 'Attending ICSE’26', image: '/images/attending-icse26.jpg' },
   { title: 'Attending ICSE’25', image: '/images/attending-icse25.jpg' },
   { title: 'Presenting at MSR’25', image: '/images/presenting-at-msr25.jpg' },
   { title: 'Presenting at ICSE’25 – JF Track', image: '/images/presenting-at-icse25-jf-track.jpg' },
