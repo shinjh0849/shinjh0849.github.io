@@ -115,6 +115,12 @@ function initPage() {
       });
     }
 
+    // scroll progress rail
+    const bar = document.querySelector<HTMLElement>('.scroll-progress span');
+    if (bar) {
+      gsap.to(bar, { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
+    }
+
     if (reduced()) return;
 
     // split headlines
@@ -155,6 +161,17 @@ function initPage() {
           scale: 1, duration: 0.5, ease: 'back.out(3)',
           scrollTrigger: { trigger: dot, start: 'top 75%', once: true },
         });
+      });
+    });
+
+    // news rail: the line draws down with scroll and each dot lights up as its card arrives
+    gsap.utils.toArray<HTMLElement>('.news').forEach((list) => {
+      gsap.fromTo(list, { '--news-draw': 0 }, {
+        '--news-draw': 1, ease: 'none',
+        scrollTrigger: { trigger: list, start: 'top 75%', end: 'bottom 65%', scrub: 0.5 },
+      });
+      gsap.utils.toArray<HTMLElement>('.news-dot', list).forEach((dot) => {
+        ScrollTrigger.create({ trigger: dot, start: 'top 72%', once: true, onEnter: () => dot.classList.add('lit') });
       });
     });
 

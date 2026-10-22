@@ -33,11 +33,11 @@ const kindLabel = { award: 'Award', paper: 'Paper', role: 'Role', talk: 'Talk' }
           <a class="btn" href={site.links.cv} target="_blank" rel="noreferrer" data-magnetic>CV <span class="arrow">↗</span></a>
         </div>
       </div>
-      <div class="hero-visual" data-hero-fade>
+      <div class="hero-visual" data-hero-fade data-parallax="0.12">
         <div class="portrait" data-tilt>
           <img src={site.portrait} alt="Portrait of Jiho Shin" width="520" height="520" />
           <div class="portrait-ring"></div>
-          <div class="portrait-tag mono">Toronto, ON · Canada</div>
+          <div class="portrait-tag mono" data-parallax="-0.35">Toronto, ON · Canada</div>
         </div>
         <SocialRow class="hero-social" />
       </div>
@@ -209,11 +209,14 @@ const kindLabel = { award: 'Award', paper: 'Paper', role: 'Role', talk: 'Talk' }
   .now-card:hover .now-arrow { color: var(--accent); transform: translate(3px, -3px); }
 
   .news { position: relative; display: grid; gap: 0.9rem; padding-left: 0; }
-  .news::before { content: ''; position: absolute; left: calc(7rem + 0.45rem); top: 0.6rem; bottom: 0.6rem; width: 1px; background: linear-gradient(to bottom, var(--accent), var(--border) 35%, var(--border) 65%, transparent); }
+  .news::before { content: ''; position: absolute; left: calc(7rem + 0.45rem); top: 0.6rem; bottom: 0.6rem; width: 1px; background: var(--border); }
+  .news::after { content: ''; position: absolute; left: calc(7rem + 0.45rem); top: 0.6rem; bottom: 0.6rem; width: 1px; background: linear-gradient(to bottom, var(--accent-2), var(--accent)); box-shadow: 0 0 8px var(--accent-glow); transform-origin: top; transform: scaleY(var(--news-draw, 1)); }
   .news-item { display: grid; grid-template-columns: 7rem 1rem 1fr; gap: 0 1.25rem; align-items: start; }
   .news-date { color: var(--accent-2); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding-top: 1.2rem; text-align: right; }
   .news-dot { position: relative; width: 10px; height: 10px; margin-top: 1.25rem; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); transition: box-shadow 0.35s, background 0.35s; }
-  .news-item:hover .news-dot { background: var(--accent); box-shadow: 0 0 0 5px var(--accent-glow); }
+  html.js .news-dot { border-color: var(--border-strong); }
+  .news-dot.lit { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow); }
+  .news-item:hover .news-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 6px var(--accent-glow); }
   .news-card { position: relative; display: block; padding: 1rem 3rem 1rem 1.25rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: inherit; transition: transform 0.35s var(--ease-out), border-color 0.35s, background 0.35s; }
   a.news-card:hover { transform: translateX(6px); border-color: rgba(255, 106, 26, 0.45); background: var(--surface-2); }
   .news-tag { display: inline-block; margin-bottom: 0.55rem; }
@@ -224,7 +227,7 @@ const kindLabel = { award: 'Award', paper: 'Paper', role: 'Role', talk: 'Talk' }
   .news-arrow { position: absolute; right: 1.1rem; top: 1rem; font-size: 1.2rem; color: var(--faint); transition: all 0.35s var(--ease-out); }
   a.news-card:hover .news-arrow { color: var(--accent); transform: translate(3px, -3px); }
   @media (max-width: 600px) {
-    .news::before { left: 0.45rem; top: 0.2rem; }
+    .news::before, .news::after { left: 0.45rem; top: 0.2rem; }
     .news-item { grid-template-columns: 1rem 1fr; gap: 0 1rem; }
     .news-date { grid-column: 2; text-align: left; padding: 0 0 0.35rem; }
     .news-dot { grid-row: 1 / span 2; margin-top: 0.15rem; }

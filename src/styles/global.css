@@ -290,6 +290,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .marquee-track span::after { content: '✦'; font-size: 0.8rem; color: var(--accent); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
+/* ---------- Scroll progress rail ---------- */
+.scroll-progress { position: fixed; inset: 0 0 auto; height: 2px; z-index: 110; pointer-events: none; }
+.scroll-progress span { display: block; height: 100%; transform-origin: left; transform: scaleX(0); background: linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow: 0 0 12px var(--accent-glow); }
+html.motion-off .scroll-progress { display: none; }
+
 /* ---------- Split text ---------- */
 [data-split] .word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
 [data-split] .word > span { display: inline-block; will-change: transform; }
