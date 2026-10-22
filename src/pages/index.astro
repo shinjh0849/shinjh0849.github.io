@@ -209,6 +209,8 @@ const stats = [
     .hero-visual { order: -1; align-items: flex-start; }
     .hero-visual :global(.hero-social) { justify-content: flex-start; }
     .portrait { width: min(60vw, 260px); }
+    /* keep the location tag off the face on small screens: bottom-left over the podium */
+    .portrait-tag { top: auto; bottom: 0.9rem; left: 0.75rem; font-size: 0.62rem; padding: 0.45rem 0.7rem; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
