@@ -96,3 +96,24 @@ export const gallery = [
   { title: 'Best Paper Award at KCSE’20', image: '/images/best-paper-award-at-kcse20.jpg' },
   { title: 'Presenting at KCSE’20', image: '/images/presenting-at-kcse20.jpg' },
 ];
+
+// Home page "Highlights" cards. Keep to 4.
+export const highlights = [
+  { kicker: 'Now · May 2026 –', title: 'Postdoctoral Research Fellow, York University', detail: 'Lassonde School of Engineering. Agentic SE: human–agent interaction and multi-agent, multi-tool collaboration.', href: '/experience/' },
+  { kicker: 'Award · Jul 2026', title: 'Best Benchmark & Dataset Award, AIware’26', detail: 'For SecVulEval, our benchmark of LLMs on real-world C/C++ vulnerability detection.', href: '/awards/' },
+  { kicker: 'Award · Jun 2026', title: 'EECS Outstanding Thesis Award, York University', detail: 'For the Ph.D. dissertation on the effectiveness of LLMs in automated software engineering.', href: '/awards/' },
+  { kicker: 'Service · 2027', title: 'Web Chair, ICSME’27', detail: 'Plus program committees at ASE’26, ICST’26, MSR’26, and FSE’26.', href: '/service/' },
+];
+
+// Home page "Recent news", newest first. Dates are display strings.
+export const news = [
+  { date: 'Jul 2026', text: 'SecVulEval received the Best Benchmark & Dataset Award at AIware’26, co-located with FSE’26.', href: '/publications/' },
+  { date: 'Jul 2026', text: 'Received the AIware’26 Distinguished Reviewer Award for the Research Track.', href: '/awards/' },
+  { date: 'Jun 2026', text: 'My Ph.D. dissertation received the EECS Outstanding Thesis Award at York University.', href: '/awards/' },
+  { date: 'May 2026', text: 'Joined the Lassonde School of Engineering at York University as a Postdoctoral Research Fellow.', href: '/experience/' },
+  { date: 'Apr 2026', text: 'Presented “Retrieval-Augmented Test Generation: How Far Are We?” at ICSE’26 in Rio de Janeiro.', href: 'https://dl.acm.org/doi/full/10.1145/3744916.3773163' },
+  { date: '2026', text: '“Demystifying Checker Bugs in Deep Learning Libraries” accepted at ICSME’26; StaAgent accepted at TOSEM.', href: '/publications/' },
+  { date: 'Mar 2026', text: 'Gave a seminar at Handong Global University on rethinking AI for unit test generation.', href: '/conferences/' },
+  { date: 'Jan 2026', text: 'Invited talks at Handong Global University and Korea University: from neuralware to promptware.', href: '/conferences/' },
+  { date: 'Sep 2025', text: 'Started as a Postdoctoral Research Fellow at Queen’s University (SAIL / MCIS).', href: '/experience/' },
+];
