@@ -109,9 +109,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .page-head h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); margin-top: 1rem; }
 .page-head .lead { max-width: 56ch; margin-top: 1.4rem; color: var(--muted); font-size: 1.15rem; }
 .page-body { padding-bottom: clamp(5rem, 12vw, 9rem); }
-.section { padding: clamp(4rem, 9vw, 7rem) 0; position: relative; }
+.section { padding: clamp(2.75rem, 5.5vw, 4.25rem) 0; position: relative; }
 .section-title { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-top: 0.8rem; }
-.section-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.section-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: clamp(1.4rem, 3vw, 2.25rem); }
 .section-head p { max-width: 42ch; color: var(--muted); }
 .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border-strong), transparent); }
 
