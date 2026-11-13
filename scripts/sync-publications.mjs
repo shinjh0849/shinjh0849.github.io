@@ -118,7 +118,7 @@ for (const w of works.sort((a, b) => (b.publication_year ?? 0) - (a.publication_
       const v = venueFor(w);
       const kind = w.primary_location?.source?.type === 'journal' ? 'journal' : 'conference';
       const before = `${p.venue} (${p.kind})`;
-      p.kind = kind; p.venue = v.short; p.venueFull = v.full || undefined; p.year = w.publication_year ?? p.year;
+      p.kind = kind; p.venue = v.short; p.venueFull = v.full || undefined; p.year = w.publication_year ?? p.year; if (w.publication_date) p.date = w.publication_date.slice(0, 7);
       delete p.note; if (link) p.href = link; p.openalex = w.id;
       changes.promoted.push(`${p.title}: ${before} → ${v.short} (${kind})${v.guessed ? ' — venue abbreviation GUESSED, fix the tag' : ''}`);
     }
@@ -130,6 +130,7 @@ for (const w of works.sort((a, b) => (b.publication_year ?? 0) - (a.publication_
   const entry = {
     kind: preprint ? 'preprint' : w.primary_location?.source?.type === 'journal' ? 'journal' : 'conference',
     year: w.publication_year,
+    date: (w.publication_date ?? `${w.publication_year}-01`).slice(0, 7),
     title: w.title,
     authors: (w.authorships ?? []).map((a) => a.author?.display_name).filter(Boolean).join(', '),
     venue: preprint ? `${/hal/i.test(v.full) ? 'HAL' : 'arXiv'} ${w.publication_year}` : v.short,
@@ -138,6 +139,7 @@ for (const w of works.sort((a, b) => (b.publication_year ?? 0) - (a.publication_
     openalex: w.id,
   };
   pubs.unshift(entry);
+  pubs.sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
   changes.added.push(`${entry.title} — ${entry.venue} (${entry.kind})${!preprint && v.guessed ? ' — venue abbreviation GUESSED, fix the tag' : ''}`);
 }
 

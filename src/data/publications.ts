@@ -8,6 +8,7 @@ export interface Publication {
   venue: string; // short label shown as a tag, e.g. "ICSE 2026"
   venueFull?: string;
   year: number;
+  date: string; // YYYY-MM, used for ordering (newest first)
   kind: PubKind;
   href?: string;
   note?: string; // e.g. "to appear", "under review"
@@ -18,7 +19,7 @@ export interface Publication {
 // publications.json is the source of truth. scripts/sync-publications.mjs
 // (run on demand via .github/workflows/sync-publications.yml) proposes edits to it
 // from OpenAlex via a pull request.
-export const publications = raw as Publication[];
+export const publications = (raw as Publication[]).slice().sort((a, b) => b.date.localeCompare(a.date));
 
 const selectedTitles = [
   'Retrieval-Augmented Test Generation: How Far Are We?',

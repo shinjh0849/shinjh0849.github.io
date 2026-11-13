@@ -5,7 +5,6 @@ import PubItem from '../components/PubItem.astro';
 import { publications, counts } from '../data/publications';
 import { site } from '../data/site';
 
-const sorted = [...publications].sort((a, b) => b.year - a.year);
 ---
 <Base title="Publications" description="Papers across AI for SE, code intelligence, testing, and defect prediction.">
   <PageHead kicker="Publications" title="Papers on <em>code</em>, tests, and trust." lead="Conference papers, journal articles, preprints, and theses across AI for SE, code intelligence, testing, and defect prediction." />
@@ -22,7 +21,7 @@ const sorted = [...publications].sort((a, b) => b.year - a.year);
         <a class="link mono" href={site.links.scholar} target="_blank" rel="noreferrer">Google Scholar ↗</a>
       </div>
       <ul class="pub-list" id="pubs" data-stagger>
-        {sorted.map((p) => <PubItem pub={p} />)}
+        {publications.map((p) => <PubItem pub={p} />)}
       </ul>
     </div>
   </section>
