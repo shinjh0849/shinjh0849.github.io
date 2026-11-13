@@ -110,6 +110,7 @@ export const highlights = {
 // Home page "Recent news", newest first. Dates are display strings; `kind` picks the tag colour.
 export type NewsKind = 'award' | 'paper' | 'role' | 'talk';
 export const news: { date: string; kind: NewsKind; text: string; href?: string }[] = [
+  { date: 'Nov 2026', kind: 'paper', text: 'New preprint: “How Should Agents See Code? Rethinking Code Representations for Agentic Software Engineering.”', href: 'https://arxiv.org/abs/2611.07286' },
   { date: 'Jul 2026', kind: 'award', text: 'SecVulEval received the Best Benchmark & Dataset Award at AIware’26, co-located with FSE’26.', href: '/publications/' },
   { date: 'Jul 2026', kind: 'award', text: 'Received the AIware’26 Distinguished Reviewer Award for the Research Track.', href: '/awards/' },
   { date: 'Jun 2026', kind: 'award', text: 'My Ph.D. dissertation received the EECS Outstanding Thesis Award at York University.', href: '/awards/' },

@@ -73,6 +73,15 @@
   {
     "kind": "preprint",
     "year": 2026,
+    "title": "How Should Agents See Code? Rethinking Code Representations for Agentic Software Engineering",
+    "authors": "Melika Sepidband, Jiho Shin, Song Wang, Hadi Hemmati",
+    "venue": "arXiv 2026",
+    "note": "under review",
+    "href": "https://arxiv.org/abs/2611.07286"
+  },
+  {
+    "kind": "preprint",
+    "year": 2026,
     "title": "Trajectory-Aware Benchmark Subset Selection for Cost-Efficient Software Engineering Agent Regression Testing",
     "authors": "Mahmoud Ayyad, Zehao Wang, Jiho Shin, Ying Zou, Bram Adams",
     "venue": "arXiv 2026",
