@@ -72,6 +72,15 @@
   {
     "kind": "preprint",
     "year": 2026,
+    "title": "FlowPlan: Reducing the Token Cost of Coding Agents with Abstraction-Guided Planning and Verification",
+    "authors": "Melika Sepidband, Jiho Shin, Song Wang, Hadi Hemmati",
+    "venue": "arXiv 2026",
+    "note": "under review",
+    "href": "https://arxiv.org/abs/2611.13241"
+  },
+  {
+    "kind": "preprint",
+    "year": 2026,
     "title": "How Should Agents See Code? Rethinking Code Representations for Agentic Software Engineering",
     "authors": "Melika Sepidband, Jiho Shin, Song Wang, Hadi Hemmati",
     "venue": "arXiv 2026",
