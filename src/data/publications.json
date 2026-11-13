@@ -124,14 +124,6 @@
     "href": "https://hal.science/hal-05743141/"
   },
   {
-    "kind": "preprint",
-    "year": 2026,
-    "title": "E2E-MeT: End-to-End Metamorphic Testing for Spoken Language Understanding Systems",
-    "authors": "Jiho Shin and co-authors",
-    "venue": "Under review",
-    "note": "double-blind submission"
-  },
-  {
     "kind": "conference",
     "year": 2025,
     "title": "Pre-trained Models for Bytecode Instructions",
@@ -252,5 +244,24 @@
     "venueFull": "22nd Korea Conference on Software Engineering",
     "award": "Distinguished Paper Award",
     "href": "http://sigsoft.or.kr/wp-content/plugins/uploadingdownloading-non-latin-filename/download.php?id=2506"
+  },
+  {
+    "kind": "thesis",
+    "year": 2025,
+    "title": "Investigating the Effectiveness of Large Language Models in Automated Software Engineering",
+    "authors": "Jiho Shin",
+    "venue": "Ph.D. Dissertation",
+    "venueFull": "York University, Electrical Engineering & Computer Science, August 2025",
+    "award": "EECS Outstanding Thesis Award",
+    "href": "/theses/jiho-shin-phd-dissertation.pdf"
+  },
+  {
+    "kind": "thesis",
+    "year": 2021,
+    "title": "Actionable Defect Prediction",
+    "authors": "Jiho Shin",
+    "venue": "M.Sc. Thesis",
+    "venueFull": "Handong Global University, February 2021",
+    "href": "/theses/jiho-shin-msc-thesis.pdf"
   }
 ]

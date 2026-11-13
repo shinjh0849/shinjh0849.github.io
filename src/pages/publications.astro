@@ -8,7 +8,7 @@ import { site } from '../data/site';
 const sorted = [...publications].sort((a, b) => b.year - a.year);
 ---
 <Base title="Publications" description="Papers across AI for SE, code intelligence, testing, and defect prediction.">
-  <PageHead kicker="Publications" title="Papers on <em>code</em>, tests, and trust." lead="Conference papers, journal articles, and preprints across AI for SE, code intelligence, testing, and defect prediction." />
+  <PageHead kicker="Publications" title="Papers on <em>code</em>, tests, and trust." lead="Conference papers, journal articles, preprints, and theses across AI for SE, code intelligence, testing, and defect prediction." />
   <section class="page-body">
     <div class="container">
       <div class="pub-toolbar" data-reveal>
@@ -17,6 +17,7 @@ const sorted = [...publications].sort((a, b) => b.year - a.year);
           <button class="chip" data-filter="conference">Conference · {counts.conference}</button>
           <button class="chip" data-filter="journal">Journal · {counts.journal}</button>
           <button class="chip" data-filter="preprint">Preprint · {counts.preprint}</button>
+          <button class="chip" data-filter="thesis">Thesis · {counts.thesis}</button>
         </div>
         <a class="link mono" href={site.links.scholar} target="_blank" rel="noreferrer">Google Scholar ↗</a>
       </div>

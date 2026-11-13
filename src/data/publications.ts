@@ -1,6 +1,6 @@
 import raw from './publications.json';
 
-export type PubKind = 'conference' | 'journal' | 'preprint';
+export type PubKind = 'conference' | 'journal' | 'preprint' | 'thesis';
 
 export interface Publication {
   title: string;
@@ -16,7 +16,7 @@ export interface Publication {
 }
 
 // publications.json is the source of truth. scripts/sync-publications.mjs
-// (run weekly by .github/workflows/sync-publications.yml) proposes edits to it
+// (run on demand via .github/workflows/sync-publications.yml) proposes edits to it
 // from OpenAlex via a pull request.
 export const publications = raw as Publication[];
 
@@ -35,6 +35,7 @@ export const counts = {
   conference: publications.filter((p) => p.kind === 'conference').length,
   journal: publications.filter((p) => p.kind === 'journal').length,
   preprint: publications.filter((p) => p.kind === 'preprint').length,
-  peerReviewed: publications.filter((p) => p.kind !== 'preprint').length,
-  awards: publications.filter((p) => p.award).length,
+  thesis: publications.filter((p) => p.kind === 'thesis').length,
+  peerReviewed: publications.filter((p) => p.kind === 'conference' || p.kind === 'journal').length,
+  awards: publications.filter((p) => p.award && p.kind !== 'thesis').length,
 };
