@@ -124,6 +124,14 @@
     "href": "https://hal.science/hal-05743141/"
   },
   {
+    "kind": "preprint",
+    "year": 2026,
+    "title": "E2E-MeT: End-to-End Metamorphic Testing for Spoken Language Understanding Systems",
+    "authors": "Jiho Shin and co-authors",
+    "venue": "Under review",
+    "note": "double-blind submission"
+  },
+  {
     "kind": "conference",
     "year": 2025,
     "title": "Pre-trained Models for Bytecode Instructions",
