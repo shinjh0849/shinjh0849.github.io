@@ -32,7 +32,7 @@ export const experience: TimelineEntry[] = [
   {
     period: 'Jan 2025 – May 2025',
     location: 'Remote · Palo Alto, CA',
-    role: 'STEM Annotator · RLEF / CodeGenAgent project',
+    role: 'STEM Annotator (internal role: RLEF / CodeGenAgent Lead)',
     org: 'Turing',
     bullets: [
       'Synthesized chain-of-thought code data for reinforcement learning with execution feedback (RLEF).',
