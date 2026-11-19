@@ -30,9 +30,9 @@ export const experience: TimelineEntry[] = [
     bullets: ['Conducted and advised graduate researchers on agentic SE studies.'],
   },
   {
-    period: 'Jan 2024 – May 2025',
+    period: 'Jan 2025 – May 2025',
     location: 'Remote · Palo Alto, CA',
-    role: 'RLEF / CodeGenAgent Lead',
+    role: 'STEM Annotator · RLEF / CodeGenAgent project',
     org: 'Turing',
     bullets: [
       'Synthesized chain-of-thought code data for reinforcement learning with execution feedback (RLEF).',
